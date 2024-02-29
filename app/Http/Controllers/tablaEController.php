@@ -15,10 +15,11 @@ class tablaEController extends Controller
     }
     public function index()
     {
-        $tablaE = Student::all();
         // Si deseas pasar datos a la vista, asegúrate de que estén disponibles. Si no, simplemente muestra la vista.
+        $tablaE= Student::paginate(5); 
         return view('tablaE', compact ('tablaE'));
     }
+    
 
     public function store(StudentsRequest $request)
     {

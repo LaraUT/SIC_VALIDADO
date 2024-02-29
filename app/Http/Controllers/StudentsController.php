@@ -18,7 +18,8 @@ class StudentsController extends Controller
     public function index()
     {
         // Si deseas pasar datos a la vista, asegúrate de que estén disponibles. Si no, simplemente muestra la vista.
-        return view('students');
+        $students= Student::paginate(5); 
+        return view('tablaE', compact ('tablaE'));
     }
 
     public function store(StudentsRequest $request)
@@ -32,7 +33,12 @@ class StudentsController extends Controller
             'comments' => $request->comments,
         ]);
 
-        // Redireccionar a la página deseada después de guardar, por ejemplo, a la lista de estudiantes
+        // Redireccionar a la página deseada después de guardar
         return redirect()->route('tablaE.index')->with('success', 'Estudiante creado con éxito.');
+    }
+    public function show($id){
+        $students = Student::find($id);
+        return view('show-students',compact('students') );
+
     }
 }

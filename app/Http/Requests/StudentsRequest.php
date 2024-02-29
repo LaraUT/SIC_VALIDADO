@@ -23,7 +23,7 @@ class StudentsRequest extends FormRequest
     {
         return [
             // Define las reglas de validación aquí
-            'name_student' => 'required|string|max:255', // Asegúrate de que el nombre sea obligatorio y sea una cadena de texto
+            'name_student' => 'required|string|max:255', //el nombre es obligatorio y es una cadena de texto
             'lastame_student' => 'nullable|string|max:255', // El apellido puede ser nulo, pero si se proporciona, debe ser una cadena de texto
             'id_student' => 'required|integer|unique:students,id_student', // El ID del estudiante debe ser único en la tabla de estudiantes
             'birthday' => 'required|date', // La fecha de nacimiento es obligatoria y debe ser una fecha válida
