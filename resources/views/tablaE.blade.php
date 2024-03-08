@@ -16,7 +16,10 @@
                         <td class="px-6 py-4">{{ $item->lastame_student }}</td>
                         <td class="px-6 py-4">{{ $item->id_student }}</td>
                         <td class="px-6 py-4"><a href="{{ route('estudiantes.show', $item->id) }}" class="text-blue-600 hover:text-blue-900">Ver</a></td>
-
+                        <td>
+                            <a href="{{route('estudiantes.show',$item->id)}}"></a>     
+                            <a href="{{route('estudiantes.edit',$item->id)}}">Editar</a>    
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

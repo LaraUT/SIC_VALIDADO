@@ -13,6 +13,18 @@ class tablaEController extends Controller
         $this->middleware('auth');
     
     }
+    public function edit($id)
+    {
+        $tablaE = Student::find($id);
+        //dd($tablaE);
+        return view('edit-student', compact("tablaE"));
+    }
+    public function update(StudentsRequest $request, $id):RedirectResponse
+    {
+        $tablaE=Student::findOrFail($id);
+        $tablaE->update->all();
+        return redirect()->route('estudiantes.index')-> with('notification', 'Estudiante actualizado correctamente!');
+    }
     public function index()
     {
         // Si deseas pasar datos a la vista, asegúrate de que estén disponibles. Si no, simplemente muestra la vista.
